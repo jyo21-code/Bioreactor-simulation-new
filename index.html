@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bioreactor Simulator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="menu">
+  <span>🧪 Bioreactor Simulator</span>
+  <span>Batch Mode</span>
+</nav>
+
+<main class="layout">
+
+  <!-- STEPS -->
+  <aside class="steps">
+    <h3>Process Steps</h3>
+    <ol>
+      <li>Add Nutrients <span>(repeatable)</span></li>
+      <li>Add Inoculum <span>(repeatable)</span></li>
+      <li>Set Aeration <span>(repeatable)</span></li>
+      <li>Run Bioreactor</li>
+    </ol>
+    <p class="note">
+      Biomass growth occurs only during operation and stops at stationary phase.
+    </p>
+  </aside>
+
+  <!-- TOOLS -->
+  <aside class="tools">
+    <div class="tool" draggable="true" data-type="nutrient">🌾 Nutrients</div>
+    <div class="tool" draggable="true" data-type="inoculum">🧫 Inoculum</div>
+    <div class="tool" draggable="true" data-type="air">💨 Aeration</div>
+  </aside>
+
+  <!-- REACTOR -->
+  <section class="reactor-panel">
+    <div class="bioreactor" id="bioreactor">
+
+      <div class="liquidOverlay">
+        <div class="liquidFill" id="liquidFill"></div>
+        <div class="bubbles" id="bubbles"></div>
+      </div>
+
+      <div class="impellerOverlay" id="impeller">
+        <div class="impBlade blade1"></div>
+        <div class="impBlade blade2"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTROLS -->
+  <aside class="controls">
+    <h3>Status</h3>
+
+    <div class="bar-row">Nutrients
+      <div class="bar"><div id="bar-nutrient" class="bar-fill">0%</div></div>
+    </div>
+
+    <div class="bar-row">Inoculum
+      <div class="bar"><div id="bar-inoculum" class="bar-fill">0%</div></div>
+    </div>
+
+    <div class="bar-row">Aeration
+      <div class="bar"><div id="bar-air" class="bar-fill">0%</div></div>
+    </div>
+
+    <p id="aerationText">Aeration: None</p>
+
+    <div class="buttons">
+      <button id="startBtn">Start</button>
+      <button id="stopBtn" disabled>Stop</button>
+      <button id="resetBtn">Reset</button>
+    </div>
+
+    <div class="readouts">
+      Biomass: <strong id="biomassRead">0.00</strong> g/L
+    </div>
+  </aside>
+
+</main>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <p id="popupText"></p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

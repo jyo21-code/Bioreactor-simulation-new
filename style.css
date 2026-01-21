@@ -1,0 +1,190 @@
+/* GLOBAL */
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#f5f8fb;
+}
+
+.menu{
+  background:#0b5ed7;
+  color:#fff;
+  padding:10px 16px;
+  display:flex;
+  justify-content:space-between;
+  font-weight:bold;
+}
+
+/* LAYOUT */
+.layout{
+  display:flex;
+  gap:12px;
+  padding:12px;
+  align-items:flex-start;
+}
+
+/* PANELS */
+.steps, .tools, .controls{
+  background:#fff;
+  padding:12px;
+  border-radius:8px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+.steps{
+  width:220px;
+  font-size:14px;
+}
+.steps span{
+  font-size:12px;
+  color:#0b5ed7;
+}
+
+.tools{
+  width:140px;
+}
+.tool{
+  margin:8px 0;
+  padding:8px;
+  background:#eef;
+  border-radius:6px;
+  cursor:grab;
+  text-align:center;
+  font-weight:600;
+}
+
+/* REACTOR */
+.reactor-panel{
+  flex:1;
+  display:flex;
+  justify-content:center;
+}
+.bioreactor{
+  width:320px;
+  height:520px;
+  background:url('bioreactor.png') no-repeat center;
+  background-size:contain;
+  position:relative;
+}
+
+/* LIQUID */
+.liquidOverlay{
+  position:absolute;
+  left:55px;
+  right:55px;
+  top:135px;
+  bottom:95px;
+  overflow:hidden;
+}
+.liquidFill{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:0%;
+  background:rgba(200,255,150,0.9);
+  transition:0.4s;
+}
+
+/* BUBBLES */
+.bubbles{position:absolute; inset:0}
+.bubble{
+  position:absolute;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#fff;
+  animation:rise 3s linear forwards;
+}
+@keyframes rise{
+  to{transform:translateY(-300px); opacity:0}
+}
+
+/* IMPELLER */
+.impellerOverlay{
+  position:absolute;
+  left:50%;
+  top:260px;
+  width:80px;
+  height:80px;
+  transform:translateX(-50%);
+}
+.impBlade{
+  position:absolute;
+  width:70px;
+  height:10px;
+  background:#333;
+  top:35px;
+  left:5px;
+  border-radius:6px;
+}
+.blade2{transform:rotate(90deg)}
+
+.spin{
+  animation:spin 0.6s linear infinite;
+}
+@keyframes spin{
+  to{transform:translateX(-50%) rotate(360deg)}
+}
+
+/* CONTROLS */
+.controls{
+  width:260px;
+}
+.bar-row{margin-bottom:8px}
+.bar{
+  height:14px;
+  background:#ddd;
+  border-radius:6px;
+}
+.bar-fill{
+  height:100%;
+  width:0%;
+  background:#0b5ed7;
+  color:#fff;
+  font-size:10px;
+  text-align:center;
+  border-radius:6px;
+}
+.buttons button{
+  margin-right:6px;
+  margin-top:6px;
+}
+
+/* POPUP */
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+.popup-content{
+  background:#fff;
+  padding:16px;
+  border-radius:8px;
+  text-align:center;
+}
+
+/* ===================== */
+/* 📱 MOBILE RESPONSIVE */
+/* ===================== */
+@media (max-width: 900px){
+  .layout{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .steps, .tools, .controls{
+    width:95%;
+  }
+
+  .bioreactor{
+    width:260px;
+    height:420px;
+  }
+
+  .impellerOverlay{
+    top:210px;
+  }
+}
